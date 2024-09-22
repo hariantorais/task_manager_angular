@@ -1,0 +1,22 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-5 rounded-lg shadow-lg w-1/3">
+    <h2 class="text-xl font-semibold mb-4">Move Card</h2>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Move to:</label>
+      <select [(ngModel)]="selectedListId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+        @for(list of lists; track list.id) {
+          <option [value]="list.id" [selected]="card.task_list_id === list.id">
+            {{ list.name }}
+            {{ card.task_list_id === list.id ? '(current)' : '' }}
+          </option>
+        }
+      </select>
+    </div>
+    <div class="flex justify-end">
+      <button (click)="onCancel()" class="bg-gray-500 text-white px-3 py-2 rounded mr-2">Cancel</button>
+      <button (click)="onMove()" class="bg-blue-500 text-white px-3 py-2 rounded">
+        Move
+      </button>
+    </div>
+  </div>
+</div>

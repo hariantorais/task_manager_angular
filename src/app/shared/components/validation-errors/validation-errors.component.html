@@ -1,0 +1,7 @@
+<ul>
+  @for(error of errors | keyvalue; track $index) {
+    <li  class="text-sm text-red-600">
+      {{ errorMessages[error.key] }}
+    </li>
+  }
+</ul>

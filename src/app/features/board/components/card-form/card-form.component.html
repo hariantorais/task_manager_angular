@@ -1,0 +1,53 @@
+<textarea
+  #cardTitleInput
+  [(ngModel)]="title"
+  placeholder="Enter a name for this card..."
+  class="w-full p-3 border border-blue-400 rounded-lg mb-1"></textarea>
+<div class="flex justify-between mb-3">
+  <div>
+    <button
+      (click)="onSubmit()"
+      class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out"
+    >
+      Save
+    </button>
+    <button
+      (click)="onCancel()"
+      class="ml-2 p-2 rounded bg-transparent hover:bg-gray-400 transition duration-300 ease-in-out"
+    >
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+
+  </div>
+  <div>
+    @if (isEditMethod) {
+      <button
+        (click)="onMove()"
+        class="p-2 rounded bg-transparent hover:bg-gray-400 transition duration-300 ease-in-out"
+      >
+        <fa-icon [icon]="faArrowRight"></fa-icon>
+        Move
+      </button>
+      <button
+        (click)="handleDelete()"
+        class="p-2 rounded bg-transparent hover:bg-red-500 transition duration-300 ease-in-out"
+      >
+        <fa-icon [icon]="faTrash"></fa-icon>
+        Delete
+      </button>
+    }
+  </div>
+
+</div>
+
+@if (showModal) {
+  <app-modal
+    [lists]="lists"
+    [card]="card"
+    (closeModal)="closeModal()"
+    (moveCard)="handleMove($event)"
+    (deleteCard)="handleDelete()"
+  >
+  </app-modal>
+}
+
