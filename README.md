@@ -1,6 +1,6 @@
 # 📋 Simple Angular Project
 
-![Angular](https://img.shields.io/badge/Angular-v12-red) ![TypeScript](https://img.shields.io/badge/TypeScript-v4-blue) ![API](https://img.shields.io/badge/API-Integrated-green) ![Authentication](https://img.shields.io/badge/Authentication-JWT-yellow)
+![Angular](https://img.shields.io/badge/Angular-v18-red) ![TypeScript](https://img.shields.io/badge/TypeScript-v4-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v3-blue)
 
 This is a **sample Angular project** that demonstrates core functionalities like user authentication, CRUD operations for boards, lists, and cards, reusable components, and API integration. It is a simple yet powerful template to build from.
 

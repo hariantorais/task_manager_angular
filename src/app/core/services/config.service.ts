@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
-  apiUrl: string = "http://localhost:8000/api";
-  getToken():string | null {
-    return localStorage.getItem('token');
-  }
+  apiUrl: string = "https://task-api.hariantorais.my.id/api";
+
   constructor() { }
 }
