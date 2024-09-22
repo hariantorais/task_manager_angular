@@ -4,6 +4,8 @@
 
 This is a **sample Angular project** that demonstrates core functionalities like user authentication, CRUD operations for boards, lists, and cards, reusable components, and API integration. It is a simple yet powerful template to build from.
 
+Demo: https://demo-task.hariantorais.my.id
+
 ## 🌟 Features
 
 - 🔐 **User Authentication**:
