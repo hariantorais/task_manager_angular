@@ -1,27 +1,74 @@
-# UserManagement
+# 📋 Simple Angular Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+![Angular](https://img.shields.io/badge/Angular-v12-red) ![TypeScript](https://img.shields.io/badge/TypeScript-v4-blue) ![API](https://img.shields.io/badge/API-Integrated-green) ![Authentication](https://img.shields.io/badge/Authentication-JWT-yellow)
 
-## Development server
+This is a **sample Angular project** that demonstrates core functionalities like user authentication, CRUD operations for boards, lists, and cards, reusable components, and API integration. It is a simple yet powerful template to build from.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🌟 Features
 
-## Code scaffolding
+- 🔐 **User Authentication**:
+  - Registration and login using JWT (JSON Web Token).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 📊 **CRUD Operations**:
+  - Boards: Create, read, update, and delete boards.
+  - Lists: Add, edit, and remove lists within boards.
+  - Cards: Manage cards (tasks) in each list.
 
-## Build
+- 🧩 **Reusable Components**: Modular and reusable components for UI consistency, including modals and forms.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- 🔗 **API Integration**: Connected to an API for backend CRUD operations.
 
-## Running unit tests
+## 🚀 Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Follow these steps to get the project up and running on your local machine:
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Make sure you have Node.js and Angular CLI installed.
 
-## Further help
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- [Angular CLI](https://angular.io/cli)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/hariantorais/task_manager_angular.git
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd task_manager_angular
+   
+3. **Install dependencies:**
+   ```bash
+   npm install
+   
+4. **Start the server:**
+   ```bash
+   ng serve
+   
+5. **Open the app in your browser:**
+   Navigate to http://localhost:4200 to see the application running.
+
+## 🛠️ Project Structure
+
+The project structure is as follows:
+
+```bash
+src/
+├── app/
+│   ├── core/               # Core services, guards, and utilities
+│   ├── features/           # Main features (auth, boards, lists, cards)
+│   ├── shared/             # Reusable components (modals, forms, etc.)
+│   └── services/           # Services to interact with API
+└── README.md
+etc.
+```
+
+## 📚 Technologies Used
+
+- Angular v18 (https://angular.dev/). Frontend framework for building web applications.
+- TypeScript (https://www.typescriptlang.org/). TypeScript is a superset of JavaScript that compiles to plain JavaScript.
+- Laravel 11 (https://laravel.com/). PHP framework for building REST APIs.
+- TailwindCSS (https://tailwindcss.com/). Utility-first CSS framework for building responsive web designs.
