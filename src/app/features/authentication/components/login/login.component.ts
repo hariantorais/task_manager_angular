@@ -21,27 +21,37 @@ export class LoginComponent {
   authService = inject(AuthService);
   router = inject(Router);
 
-  errorMessage = {required: 'This field is required'}
+  errorMessage = {required: 'This field is required', email: 'Please enter a valid email address'}
   error: string = '';
 
   formGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    password: new FormControl('', [Validators.required]),
   });
 
 
-  login() {
+  login(): void {
+
+    if (this.formGroup.invalid) {
+      this.formGroup.markAsTouched();
+      return;
+    }
+
     this.isLoading = true;
     this.authService.login(this.formGroup.value).subscribe({
       next: (res) => {
-        if (res.access_token) {
+        if (res.status === 'ok') {
           this.authService.storeToken(res.access_token);
-          this.isLoading = false;
           this.router.navigate(['/boards']);
+        } else {
+          this.error = res.message;
         }
       },
-      error: () => {
-        this.error = 'Something went wrong. Please try again.';
+      error: (error) => {
+        console.log(error)
+        this.error = error;
+      },
+      complete: () => {
         this.isLoading = false;
       }
     });
