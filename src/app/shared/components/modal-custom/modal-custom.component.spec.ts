@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UnauthorizedComponent } from './unauthorized.component';
+import { ModalCustomComponent } from './modal-custom.component';
 
-describe('UnauthorizedComponent', () => {
-  let component: UnauthorizedComponent;
-  let fixture: ComponentFixture<UnauthorizedComponent>;
+describe('ModalCustomComponent', () => {
+  let component: ModalCustomComponent;
+  let fixture: ComponentFixture<ModalCustomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UnauthorizedComponent]
+      imports: [ModalCustomComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UnauthorizedComponent);
+    fixture = TestBed.createComponent(ModalCustomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

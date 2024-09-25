@@ -77,14 +77,6 @@ export class LayoutComponent implements OnInit {
 
   menuItems = [
     {
-      title: 'Dashboard',
-      link: 'dashboard'
-    },
-    {
-      title: 'User List',
-      link: 'user-list'
-    },
-    {
       title: 'Board',
       link: 'boards'
     }

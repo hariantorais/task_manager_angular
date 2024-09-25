@@ -1,0 +1,35 @@
+<app-modal-custom
+  [bodyTemplate]="body"
+  [modalTitle]="card.title"
+  (closeModalDetail)="onCloseModal()"
+></app-modal-custom>
+
+<ng-template #body>
+  <b>Members</b>
+  <div class="flex items-center">
+
+    @for (member of cardMembers(); track $index) {
+      <p class="inline-flex items-center px-3 py-0.5 mr-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+        {{ member['name'] }}
+        <fa-icon class="cursor-pointer border-l-2 ml-2 pl-2 border-gray-300 hover:text-red-500"
+                 [icon]="faTimes"
+                 (click)="onRemoveMember(member['id'], card.id)"></fa-icon>
+      </p>
+    }
+    <button (click)="onShowFormAddMember()" class="btn btn-xs py-1 rounded-lg">+ Add</button>
+  </div>
+
+  @if (isShowFormAddMember) {
+    <div class="mt-2">
+      <input type="search" (input)="onSearchInput($event)" #addMemberInput placeholder="Search member..."
+             class="input input-bordered w-full input-sm">
+
+      @for (member of resultMembers; track $index) {
+        <div (click)="onSelectMember(member.id)" class="cursor-pointer hover:bg-gray-100 p-2">{{ member.name }}</div>
+      } @empty {
+        <span class="text-xs">No results found</span>
+      }
+    </div>
+  }
+
+</ng-template>

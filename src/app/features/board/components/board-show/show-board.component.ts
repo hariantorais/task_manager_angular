@@ -7,7 +7,9 @@ import {CardService} from "../../services/card.service";
 import {FormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {BoardService} from "../../services/board.service";
-import {UnauthorizedComponent} from "../../../../shared/components/unauthorized/unauthorized.component";
+import {ErrorPageComponent} from "../../../../shared/components/error-page/error-page.component";
+import {ModalCustomComponent} from "../../../../shared/components/modal-custom/modal-custom.component";
+import {CardDetailComponent} from "../card-detail/card-detail.component";
 
 @Component({
   selector: 'app-board-show',
@@ -16,7 +18,9 @@ import {UnauthorizedComponent} from "../../../../shared/components/unauthorized/
     CardFormComponent,
     FaIconComponent,
     FormsModule,
-    UnauthorizedComponent
+    ErrorPageComponent,
+    ModalCustomComponent,
+    CardDetailComponent
   ],
   templateUrl: './show-board.component.html',
   styleUrl: './show-board.component.css'
@@ -31,6 +35,10 @@ export class ShowBoardComponent implements OnInit, AfterViewInit {
   currentBoardId: number = 0;
   errorCode: number = 0;
 
+  isShowModalDetail: boolean = false;
+  showModalDetail() {
+    this.isShowModalDetail = !this.isShowModalDetail;
+  }
 
   board: any = {};
 
@@ -56,10 +64,7 @@ export class ShowBoardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  toggleEditListMode(listId: number = 0) {
-    this.hideAllForms();
-    this.isEditList[listId] = !this.isEditList[listId];
-  }
+
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((res: any) => {
@@ -68,6 +73,11 @@ export class ShowBoardComponent implements OnInit, AfterViewInit {
         this.loadBoardById(res.id);
       }
     })
+  }
+
+  toggleEditListMode(listId: number = 0) {
+    this.hideAllForms();
+    this.isEditList[listId] = !this.isEditList[listId];
   }
 
   editBoardName() {
@@ -92,6 +102,9 @@ export class ShowBoardComponent implements OnInit, AfterViewInit {
     this.editCardMode[cardId] = !this.editCardMode[cardId];
   }
 
+  onCloseModalDetail(){
+    this.isShowModalDetail = false;
+  }
 
   saveCardChanges(listId: number, card: any, newTitle: string) {
     card.title = newTitle;

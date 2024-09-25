@@ -1,20 +1,18 @@
-@if (errorCode){
-  <app-unauthorized [errorCode]="errorCode" ></app-unauthorized>
-}
-@else {
-  @defer{
+@if (errorCode) {
+  <app-error-page [errorCode]="errorCode"></app-error-page>
+} @else {
+  @defer {
     <div (click)="editBoardName()" class="mb-2 cursor-pointer">
-      @if(isEditBoardName){
+      @if (isEditBoardName) {
         <input
           [(ngModel)]="board.name"
-          #boardNameInput
           (blur)="saveBoardName(board.id, board.name)"
           (keydown.enter)="saveBoardName(board.id, board.name)"
           (keydown.escape)="cancelEditBoardName()"
           class="w-full p-1 border focus:outline-blue-400 focus:outline-2 my-0 pl-2 rounded-lg"
           autofocus
         >
-      }@else{
+      } @else {
         <b class="text-xl">{{ board.name }}</b>
       }
     </div>
@@ -24,13 +22,13 @@
         <div
           class="w-full mb-2 p-2 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-2 dark:bg-gray-800 dark:border-gray-700">
           <div class="flex items-center justify-between mb-4">
-            @if(!isEditList[list.id]){
+            @if (!isEditList[list.id]) {
               <div (click)="toggleEditListMode(list.id)" class="leading-none text-gray-900 dark:text-white m-2 w-full">
                 {{ list.name }}
               </div>
             }
 
-            @if (isEditList[list.id]){
+            @if (isEditList[list.id]) {
               <input
                 [(ngModel)]="list.name"
                 #listNameInput
@@ -45,19 +43,21 @@
           <div class="flow-root">
             @for (card of list.cards; track $index) {
               @if (!editCardMode[card.id]) {
-
                 <div class="flex items-center bg-white mb-2 p-3 rounded-lg hover:border-blue-400 group">
-                  <div class="flex-1 min-w-0">
+                  <div (click)="showModalDetail()" class="flex-1 cursor-pointer min-w-0">
                     <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
                       {{ card.title }}
                     </p>
                   </div>
 
+                  @if (isShowModalDetail) {
+                    <app-card-detail [card]="card" (onCloseModalDetail)="onCloseModalDetail()"></app-card-detail>
+                  }
 
                   <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ml-2">
                     @if (!editCardMode[card.id]) {
                       <button (click)="toggleEditCardMode(card.id)" class="btn btn-circle btn-xs">
-                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                        <fa-icon [icon]="faPencilAlt" class="hidden hover:block"></fa-icon>
                       </button>
                     }
                   </div>
@@ -77,30 +77,29 @@
                 ></app-card-form>
               }
             }
-            @if(isLoading[list.id]) {
+            @if (isLoading[list.id]) {
               <div class="text-center">
                 <span class="loading loading-spinner"></span>
               </div>
             }
             @if (!showForm[list.id] && !isLoading[list.id]) {
-              <button (click)="showAddCardForm(list.id)"
-                      class="w-full cursor-pointer hover:bg-gray-300 rounded-lg transition duration-400 ease-in-out p-3">
+              <button
+                (click)="showAddCardForm(list.id)"
+                class="w-full cursor-pointer hover:bg-gray-300 rounded-lg transition duration-400 ease-in-out p-3"
+              >
                 <fa-icon [icon]="faPlus"></fa-icon>
                 Add Card
               </button>
             }
             @if (showForm[list.id] && !isLoading[list.id]) {
-              <app-card-form
-                (formSubmit)="addCard(list.id, $event)"
-                (cancelForm)="onCancel()"
-              ></app-card-form>
+              <app-card-form (formSubmit)="addCard(list.id, $event)" (cancelForm)="onCancel()"></app-card-form>
             }
           </div>
         </div>
       }
     </div>
 
-  } @loading (){
+  } @loading () {
     <div class="text-center">
       <span class="loading loading-spinner"></span>
     </div>

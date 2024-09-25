@@ -25,6 +25,8 @@ export class ControlValueAccessorDirective<T>
 
   value: string = '';
 
+  isSubmitted = false;
+
 
 
   constructor(@Inject(Injector) private injector: Injector) {
@@ -57,6 +59,12 @@ export class ControlValueAccessorDirective<T>
   };
   onTouched: any = () => {
   };
+
+  markAsSubmitted(){
+    this.isSubmitted = true;
+  }
+
+
 
   writeValue(value: T): void {
     if (this.control) {

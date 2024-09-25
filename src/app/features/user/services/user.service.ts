@@ -33,4 +33,8 @@ export class UserService {
   deleteUser(id: number | undefined): Observable<any>{
     return this.http.delete(`${this.config.apiUrl}/users/${id}`);
   }
+
+  searchUser(search: string, cardId?: number): Observable<any>{
+    return this.http.post(`${this.config.apiUrl}/users/search`, {search, cardId});
+  }
 }

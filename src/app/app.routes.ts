@@ -47,14 +47,6 @@ export const routes: Routes = [
     resolve: {title: TitleResolver},
     children: [
       {
-        path: 'dashboard',
-        component: DashboardComponent,
-        data: {
-          title: 'Dashboard'
-        }
-
-      },
-      {
         path: 'user-list',
         component: UserListComponent,
         data: {

@@ -31,4 +31,8 @@ export class CardService {
     return this.http.delete(`${this.config.apiUrl}/cards/${cardId}`)
   }
 
+  getCard(cardId: number): Observable<any> {
+    return this.http.get(`${this.config.apiUrl}/cards/${cardId}`)
+  }
+
 }
