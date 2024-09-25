@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
-  // apiUrl: string = "https://task-api.hariantorais.my.id/api";
+  apiUrl: string = "https://task-api.hariantorais.my.id/api";
 
-  apiUrl: string = "http://localhost:8000/api";
+  // apiUrl: string = "http://localhost:8000/api";
 
 }
