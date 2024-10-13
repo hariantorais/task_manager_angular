@@ -10,13 +10,13 @@
 
 
   @defer (when !isLoading) {
-    @for (board of boards; track $index) {
-      <div routerLink="/boards/{{ board['id'] }}" (contextmenu)="onRightClick(board['id'], $event)"
+    @for (board of boards; track board.id) {
+      <div routerLink="/boards/{{ board.id }}" (contextmenu)="onRightClick(board.id!, $event)"
            class="card shadow-lg bg-blue-400 hover:bg-blue-500 cursor-pointer"
       >
         <div class="card-body">
           <div class="flex justify-between">
-            <b class="text-white">{{ board['name'] }}</b>
+            <b class="text-white">{{ board.name }}</b>
 
           </div>
         </div>
@@ -33,7 +33,7 @@
     <div class="bg-white p-5 rounded-lg shadow-lg w-full sm:w-3/4 md:1/2 lg:w-1/3 max-w-lg">
       <h2 class="text-xl font-semibold mb-4">Add Your Board</h2>
       <form [formGroup]="formGroupCreateBoard">
-        <app-input [customErrorMessages]="errorMessages" label="Board Name" type="text" inputId="name"
+        <app-input label="Board Name" type="text" inputId="name"
                    formControlName="name"></app-input>
 
       </form>

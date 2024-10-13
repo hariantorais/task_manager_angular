@@ -15,7 +15,7 @@ import {NgTemplateOutlet} from "@angular/common";
 export class ModalCustomComponent {
   @Input() bodyTemplate: any;
   @Input() buttonSubmitTemplate: any;
-  @Input() modalTitle!: string | null | undefined;
+  @Input() modalTitle!: string;
   @Output() closeModalDetail = new EventEmitter();
 
   onCancel() {

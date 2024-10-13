@@ -9,7 +9,6 @@ import {Observable, of} from "rxjs";
 export class TitleResolver implements Resolve<string>{
   resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
   ): Observable<string>{
     return of(route.data['title'] || 'Default Title')
   }

@@ -16,10 +16,10 @@ import {JsonPipe} from "@angular/common";
 })
 export class LoginComponent {
 
-  isLoading: boolean = false;
-
   authService = inject(AuthService);
   router = inject(Router);
+
+  isLoading: boolean = false;
 
   errorMessage = {required: 'This field is required', email: 'Please enter a valid email address'}
   error: string = '';

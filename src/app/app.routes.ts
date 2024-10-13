@@ -10,7 +10,6 @@ import {ShowBoardComponent} from "./features/board/components/board-show/show-bo
 import {guestGuard} from "./core/guards/guest.guard";
 import {RegisterComponent} from "./features/authentication/components/register/register.component";
 import {AuthLayoutComponent} from "./features/authentication/components/auth-layout/auth-layout.component";
-import {DashboardComponent} from "./features/dashboard/components/dashboard/dashboard.component";
 
 export const routes: Routes = [
   {

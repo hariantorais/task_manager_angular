@@ -25,12 +25,10 @@ export class RegisterComponent {
   isRegistered: boolean = false;
   isLoading = false;
 
-  errorMessage = {required: 'This field is required'}
-
   formGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
   })
 
   register(){

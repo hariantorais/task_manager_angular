@@ -1,9 +1,9 @@
 <form [formGroup]="formGroup" class="mt-5 mx-auto">
-  <app-input [customErrorMessages]="errorMessages" label="Name" type="text" inputId="name"
+  <app-input label="Name" type="text" inputId="name"
              formControlName="name"></app-input>
-  <app-input [customErrorMessages]="errorMessages" label="Email" type="email" inputId="email"
+  <app-input label="Email" type="email" inputId="email"
              formControlName="email"></app-input>
-  <app-input [customErrorMessages]="errorMessages" label="Password" type="password" inputId="password"
+  <app-input label="Password" type="password" inputId="password"
              formControlName="password"></app-input>
   <button
     (click)="onSubmit()"

@@ -35,7 +35,6 @@ export class InputComponent<T> extends ControlValueAccessorDirective<T> {
   @Input() inputId: string = '';
   @Input() label: string = '';
   @Input() type: InputType = 'text';
-  @Input() customErrorMessages: Record<string, string> = {};
 
   onInputChange(event: any): void{
     const newValue = event.target.value;

@@ -19,14 +19,8 @@ export class ControlValueAccessorDirective<T>
 
   control!: FormControl | undefined;
   isRequired = false;
-  private _isDisabled = false;
   private _destroy$ = new Subject<void>();
-  private _onTouched!: () => T;
-
   value: string = '';
-
-  isSubmitted = false;
-
 
 
   constructor(@Inject(Injector) private injector: Injector) {
@@ -60,16 +54,10 @@ export class ControlValueAccessorDirective<T>
   onTouched: any = () => {
   };
 
-  markAsSubmitted(){
-    this.isSubmitted = true;
-  }
-
-
-
   writeValue(value: T): void {
     if (this.control) {
       if (this.control.value !== value) {
-        this.control.setValue(value, { emitEvent: false });
+        this.control.setValue(value, {emitEvent: false});
       }
     } else {
       this.control = new FormControl(value);
@@ -92,15 +80,9 @@ export class ControlValueAccessorDirective<T>
 
 
   setDisabledState?(isDisabled: boolean): void {
-    this._isDisabled = isDisabled;
-    if(this.control){
+    if (this.control) {
       isDisabled ? this.control.disable() : this.control.enable()
     }
-  }
-
-  handleInput(value: string) {
-    this.value = value;
-    this.onChange(value);
   }
 
 }

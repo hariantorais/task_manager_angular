@@ -31,7 +31,7 @@ import {ModalComponent} from "../modal/modal.component";
 export class BoardComponent implements OnInit {
   boardService = inject(BoardService);
 
-  boards: [] = [];
+  boards: IBoard[] = [];
   showModalCreateBoard = false;
 
   isLoading = false;
@@ -58,7 +58,7 @@ export class BoardComponent implements OnInit {
 
   loadBoards() {
     this.boardService.getBoards().subscribe((res: any) => {
-      this.boards = res.data;
+      this.boards = res.data as IBoard[];
       this.isLoading = false;
     })
   }
